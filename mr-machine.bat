@@ -1,17 +1,19 @@
 cd ..
 cd CINEVStudio
 
-set branch_name=fix/art-light-artifact
-set commit_hash=d7a40db381d1cba6074deae5ce66ccc405bb728a
-set assignee=narr
-set title="fix(art) : Lighting artifact for schoolroom level"
-set description="artifact by virtual shadow map"
+set /p branch_name=Enter branch name: 
+set /p commit_hash=Enter commit hash: 
+set /p assignee=Enter assignee: 
+set /p title=Enter title: 
+set /p description=Enter description: 
 
 git fetch --all 
 
 git branch %branch_name% origin/develop 
 
 git switch %branch_name%
+
+git pull origin %branch_name%
 
 git cherry-pick -X theirs %commit_hash%
 
