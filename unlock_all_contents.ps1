@@ -10,3 +10,10 @@ Write-Host "IDs of locked files:"
 $lockedFiles | ForEach-Object {
     Write-Host $_
 }
+
+# Unlock each file by ID
+$lockedFiles | ForEach-Object {
+    $unlockCommand = "git lfs unlock -f --id=$_"
+    Invoke-Expression $unlockCommand
+    Write-Host "Unlocked file with ID: $_"
+}
